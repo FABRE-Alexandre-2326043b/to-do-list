@@ -127,16 +127,20 @@
     ],
     "relations": [
         {
+            "tache": 101,
+            "categorie": 203
+        },
+        {
             "tache": 102,
             "categorie": 201
         },
         {
-            "tache": 108,
-            "categorie": 201
+            "tache": 103,
+            "categorie": 203
         },
         {
-            "tache": 109,
-            "categorie": 203
+            "tache": 104,
+            "categorie": 201
         },
         {
             "tache": 105,
@@ -145,6 +149,18 @@
         {
             "tache": 106,
             "categorie": 202
+        },
+        {
+            "tache": 107,
+            "categorie": 202
+        },
+        {
+            "tache": 108,
+            "categorie": 201
+        },
+        {
+            "tache": 109,
+            "categorie": 203
         }
     ]
 }

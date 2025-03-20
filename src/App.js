@@ -2,7 +2,7 @@ import './App.css';
 import data from './data.json';
 
 function App() {
-  var listProgressing = data["taches"].filter(t => !t.done).map(tache => <tr key = {tache["id"]}> <td> <input type="checkbox"/> {tache["title"]} </td> <td> {tache["date_echeance"]} </td> </tr>);
+  var listProgressing = data["taches"].filter(t => !t.done).map(tache => <tr key = {tache["id"]}> <td> <input type="checkbox"/> {tache["title"]} </td> <td> {data["categories"].find((c) => c["id"] == data["relations"].find((r) => r["tache"] == tache["id"])["categorie"])["title"]}</td> <td> {tache["date_echeance"]} </td> </tr>);
   
   return (
     <div className="App">
@@ -14,6 +14,7 @@ function App() {
 						<thead>
 						  <tr>
 							<th scope="col">Nom de la tâche</th>
+              <th scope="col">Catégorie </th>
 							<th scope="col">Date d'échéance</th>
 						  </tr>
 						</thead>
@@ -22,7 +23,7 @@ function App() {
       </header>
 
       <footer>
-        <button>Tâche </button>
+        <button>Tâche</button>
         <button>Catégorie</button>
       </footer>
     </div>
