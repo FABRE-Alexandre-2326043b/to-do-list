@@ -1,32 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
 import data from './data.json';
-function findProgressing(tache) {
-    
-  }
 
 function App() {
-  var listTaches = data["taches"].map(tache => <li key = {tache["id"]}> {tache["title"]}</li>);
-  var nbProgessing = 0;
-  data["taches"].forEach(function(tache){
-    if (!tache["done"]){
-      ++nbProgessing;
-    }
-  })
+  var listProgressing = data["taches"].filter(t => !t.done).map(tache => <tr key = {tache["id"]}> <td> <input type="checkbox"/> {tache["title"]} </td> <td> {tache["date_echeance"]} </td> </tr>);
   
   return (
     <div className="App">
       <header>
         <h1> To Do amU </h1>
-        <h2> {data["taches"].length} tâches, dont {nbProgessing} en cours </h2>
-        <ul>
-          {listTaches}
-        </ul>
+        <h2> {data["taches"].length} tâches, dont {data["taches"].filter(t => !t.done).length} en cours </h2>
+        <button>Voir toutes les tâches</button>
+        <table>
+						<thead>
+						  <tr>
+							<th scope="col">Nom de la tâche</th>
+							<th scope="col">Date d'échéance</th>
+						  </tr>
+						</thead>
+						<tbody id="list">{listProgressing}</tbody>
+				</table>
       </header>
 
       <footer>
-        <a>Tâche </a>
-        <a>Catégorie</a>
+        <button>Tâche </button>
+        <button>Catégorie</button>
       </footer>
     </div>
   );
