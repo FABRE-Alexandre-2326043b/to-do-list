@@ -1,7 +1,9 @@
+import { Done } from '../Done/Done.js';
+
 function Filtre() {
     return(
         <div>
-            <button>Toutes</button>
+            <Done/>
             <button>Tri</button>
         </div>        
     )

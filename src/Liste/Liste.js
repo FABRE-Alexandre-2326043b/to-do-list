@@ -1,7 +1,20 @@
-import data from '../data.json';
+import { useContext } from 'react';
+import { TodoContext } from '../TodoContext/TodoContext';
+import { ConfigContext } from '../ConfigContext/ConfigContext';
 
 function Liste(){
-    var listProgressing = data["taches"].filter(t => !t.done).map(tache =><tr key = {tache["id"]}><td><input type="checkbox"/> {tache["title"]} </td><td> {data["categories"].find((c) => c["id"] === data["relations"].find((r) => r["tache"] === tache["id"])["categorie"])["title"]}</td><td> {tache["date_echeance"]} </td></tr>);
+    const data = useContext(TodoContext);
+    const config = useContext(ConfigContext);
+
+    var listProgressing;
+
+    if (config["filterProgressing"]){
+        listProgressing = data["taches"].filter(t => !t.done).map(tache =><tr key = {tache["id"]}><td><input type="checkbox"/> {tache["title"]} </td><td> {data["categories"].find((c) => c["id"] === data["relations"].find((r) => r["tache"] === tache["id"])["categorie"])["title"]}</td><td> {tache["date_echeance"]} </td></tr>);
+    }else {
+        listProgressing = data["taches"].map(tache =><tr key = {tache["id"]}><td><button> Done </button> {tache["title"]} </td><td> {data["categories"].find((c) => c["id"] === data["relations"].find((r) => r["tache"] === tache["id"])["categorie"])["title"]}</td><td> {tache["date_echeance"]} </td></tr>);
+
+    }
+
     return (
     <table>
         <thead>
@@ -11,7 +24,7 @@ function Liste(){
             <th scope="col">Date d'échéance</th>
             </tr>
         </thead>
-        <tbody id="list">{listProgressing}</tbody>
+        <tbody>{listProgressing}</tbody>
     </table>)
 }
 
