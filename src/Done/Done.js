@@ -1,13 +1,13 @@
 import { useContext } from 'react';
-import { ConfigContext } from '../ConfigContext/ConfigContext';
+import { TodoContext } from '../TodoContext/TodoContext';
 
 function Done(){
-    const config = useContext(ConfigContext);
+    const {showAll, currentConfig, showProgressing} = useContext(TodoContext);
 
-    if (config["filterProgressing"]){
-        return <button>Toutes</button> // onClick={showAll}
+    if (currentConfig["filterProgressing"]){
+        return <button onClick={showAll}>Toutes</button> 
     }else{
-        return <button>En cours</button> // onClick={showProgressing}
+        return <button onClick={showProgressing}>En cours</button>
     }
     
 }

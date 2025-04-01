@@ -1,20 +1,11 @@
+import { useContext } from 'react';
 import { useState } from 'react';
-import data from '../data.json';
+import { TodoContext } from '../TodoContext/TodoContext';
+
 
 function Footer(){
-    const [todos, setTodos] = useState(data);
     const [text, setText] = useState('');
-    const addTask = () => {
-    const todo = {
-        id: todos.length,
-        text: text
-    };
-    const newTodos = {...todos};  
-    newTodos.taches = [...newTodos.taches,todo];
-    setTodos(newTodos);
-    setText('');
-    console.log(todos);
-    }
+    const {currentTodo, setCurrentTodo} = useContext(TodoContext);
 
     return(
         <footer>
@@ -22,9 +13,24 @@ function Footer(){
                 value={text}
                 onChange={e => setText(e.target.value)}
             />
-            <button onClick={addTask}>Add</button>
+            <button onClick={() => {
+                const todo = {
+                    id: currentTodo.taches.length + 101,
+                    text: text
+                };
+                const newRelation = {
+                    tache : currentTodo.taches.length + 101,
+                    categorie : 203
+                }
+                const newTodos = {...currentTodo};  
+                newTodos.taches = [...newTodos.taches,todo];
+                newTodos.relations = [...newTodos.relations,newRelation]
+                setCurrentTodo(newTodos);
+                setText('');
+                console.log(currentTodo);
+            }}>Ajouter</button>
         </footer>
-    )
+        )
 }
 
 export {Footer};
