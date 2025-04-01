@@ -5,6 +5,7 @@ import { TodoContext } from '../TodoContext/TodoContext';
 
 function Footer(){
     const [text, setText] = useState('');
+    const [text2, setText2] = useState('');
     const {currentTodo, setCurrentTodo} = useContext(TodoContext);
 
     return(
@@ -33,7 +34,22 @@ function Footer(){
                 setCurrentTodo(newTodos);
                 setText('');
                 console.log(currentTodo);
-            }}>Ajouter</button>
+            }}>Ajouter une tâche</button><br/>
+            <input
+                value={text2}
+                onChange={e => setText2(e.target.value)}
+            />
+            <button onClick={() => {
+                const cat = {
+                    id: currentTodo.categories.length + 201,
+                    title: text2,
+                };
+                const newTodos = {...currentTodo};  
+                newTodos.categories = [...newTodos.categories,cat];
+                setCurrentTodo(newTodos);
+                setText2('');
+                console.log(currentTodo);
+            }}>Ajouter une catégorie</button>
         </footer>
         )
 }

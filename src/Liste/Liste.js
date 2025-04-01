@@ -6,6 +6,9 @@ function Liste(){
 
     var listTasks = currentTodo.taches.copyWithin(0);
 
+    if(currentConfig["filter"] === "échéance passée depuis une semaine"){
+        listTasks = listTasks.filter(t => (new Date(t.date_echeance) - Date.now()) > 604800000 )
+    }
     if(currentConfig["nbCategories"]){
         listTasks = listTasks.filter(tache => currentTodo["relations"].find((r) => r["tache"] === tache["id"])["categorie"] < 203);
     }
