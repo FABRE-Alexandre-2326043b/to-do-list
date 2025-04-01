@@ -1,5 +1,9 @@
 import { Done } from '../Done/Done.js';
 import { useContext } from 'react';
+import { useState } from 'react';
+import React from "react";
+import { faFilter, faArrowDownAZ, faClockRotateLeft,faArrowDown19,faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { TodoContext } from '../TodoContext/TodoContext';
 
 function Filtre() {
@@ -41,12 +45,23 @@ function Filtre() {
         setCurrentTodo(newTodos);
     }
 
+    const [text, setText] = useState('');
+
+    function recherche(){
+        const newTodos = { ...currentTodo };
+        newTodos.taches = [...newTodos.taches.filter(t => text === t.title)]
+        setCurrentTodo(newTodos);
+    }
+
     return (
         <div>
             <Done />
-            <button onClick={alphabetSort}>Tri alphabétique</button>
-            <button onClick={creationSort}>Tri par création</button>
-            <button onClick={echeanceSort}>Tri par échéance</button>
+            <FontAwesomeIcon icon={faFilter} />
+            <button onClick={alphabetSort}><FontAwesomeIcon icon={faArrowDownAZ} />Tri alphabétique</button>
+            <button onClick={creationSort}><FontAwesomeIcon icon={faClockRotateLeft} />Tri par création</button>
+            <button onClick={echeanceSort}><FontAwesomeIcon icon={faArrowDown19} />Tri par échéance</button><br/>
+            <input value={text} onChange={e => setText(e.target.value)}></input>
+            <button onClick={recherche}><FontAwesomeIcon icon={faMagnifyingGlass} />Rechercher</button>
         </div>
     )
 }

@@ -14,6 +14,11 @@ function Liste(){
     }else{
         listTasks = currentTodo.taches.copyWithin(0);
     }
+    if(currentConfig["sort"] === "date d'échéance décroissante"){
+        listTasks = listTasks.sort((e1, e2) => {
+            return e1.date_echeance > e2.date_echeance ? 1 : -1
+        })
+    }
          
     listTasks = listTasks.map(tache =><tr key = {tache["id"]}><td><input type="checkbox" value={tache.done} onClick={value => {tache.done=value}}/> {tache["title"]} </td><td> {currentTodo["categories"].find((c) => c["id"] === currentTodo["relations"].find((r) => r["tache"] === tache["id"])["categorie"])["title"]}</td><td> {tache["date_echeance"]} </td></tr>);
 
