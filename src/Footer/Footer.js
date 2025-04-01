@@ -21,11 +21,11 @@ function Footer(){
                 const todo = {
                     id: currentTodo.taches.length + 101,
                     title: text,
-                    date_creation: dtf.format(d)
+                    date_echeance: dtf.format(d)
                 };
                 const newRelation = {
                     tache : currentTodo.taches.length + 101,
-                    categorie : 203
+                    categorie : 201
                 }
                 const newTodos = {...currentTodo};  
                 newTodos.taches = [...newTodos.taches,todo];

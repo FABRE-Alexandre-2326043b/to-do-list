@@ -4,14 +4,18 @@ import { TodoContext } from '../TodoContext/TodoContext';
 function Liste(){
     const {currentTodo, currentConfig} = useContext(TodoContext);
 
-    var listProgressing;
+    var listTasks = currentTodo.taches.copyWithin(0);
 
-    if (currentConfig["filterProgressing"]){
-        listProgressing = currentTodo["taches"].filter(t => !t.done).map(tache =><tr key = {tache["id"]}><td><input type="checkbox" value={tache.done} onClick={value => {tache.done=value}}/> {tache["title"]} </td><td> {currentTodo["categories"].find((c) => c["id"] === currentTodo["relations"].find((r) => r["tache"] === tache["id"])["categorie"])["title"]}</td><td> {tache["date_echeance"]} </td></tr>);
-    }else {
-        listProgressing = currentTodo["taches"].map(tache =><tr key = {tache["id"]}><td><input type="checkbox" value={tache.done} onClick={value => {tache.done=value}}/> {tache["title"]} </td><td> {currentTodo["categories"].find((c) => c["id"] === currentTodo["relations"].find((r) => r["tache"] === tache["id"])["categorie"])["title"]}</td><td> {tache["date_echeance"]} </td></tr>);
-
+    if(currentConfig["nbCategories"]){
+        listTasks = listTasks.filter(tache => currentTodo["relations"].find((r) => r["tache"] === tache["id"])["categorie"] < 203);
     }
+    if (currentConfig["filterProgressing"]){
+        listTasks = listTasks.filter(t => !t.done);
+    }else{
+        listTasks = currentTodo.taches.copyWithin(0);
+    }
+         
+    listTasks = listTasks.map(tache =><tr key = {tache["id"]}><td><input type="checkbox" value={tache.done} onClick={value => {tache.done=value}}/> {tache["title"]} </td><td> {currentTodo["categories"].find((c) => c["id"] === currentTodo["relations"].find((r) => r["tache"] === tache["id"])["categorie"])["title"]}</td><td> {tache["date_echeance"]} </td></tr>);
 
     return (
     <table>
@@ -22,7 +26,7 @@ function Liste(){
             <th scope="col">Date d'échéance</th>
             </tr>
         </thead>
-        <tbody>{listProgressing}</tbody>
+        <tbody>{listTasks}</tbody>
     </table>)
 }
 
