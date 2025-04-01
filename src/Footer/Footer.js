@@ -14,9 +14,14 @@ function Footer(){
                 onChange={e => setText(e.target.value)}
             />
             <button onClick={() => {
+                var d = Date.now();
+                let dtf = new Intl.DateTimeFormat("fr", {
+                    dateStyle: "short",
+                  });
                 const todo = {
                     id: currentTodo.taches.length + 101,
-                    text: text
+                    title: text,
+                    date_creation: dtf.format(d)
                 };
                 const newRelation = {
                     tache : currentTodo.taches.length + 101,
