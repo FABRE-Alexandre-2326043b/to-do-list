@@ -1,6 +1,9 @@
 import { useContext } from 'react';
 import { useState } from 'react';
 import { TodoContext } from '../TodoContext/TodoContext';
+import { FormTask } from '../FormTask/FormTask';
+import { useRef } from "react";
+
 
 
 function Footer(){
@@ -8,33 +11,14 @@ function Footer(){
     const [text2, setText2] = useState('');
     const {currentTodo, setCurrentTodo} = useContext(TodoContext);
 
+    const buttonOpen = useRef(null);
+    const modalElement = useRef(null);
+
     return(
         <footer>
-            <input
-                value={text}
-                onChange={e => setText(e.target.value)}
-            />
-            <button onClick={() => {
-                var d = Date.now();
-                let dtf = new Intl.DateTimeFormat("fr", {
-                    dateStyle: "short",
-                  });
-                const todo = {
-                    id: currentTodo.taches.length + 101,
-                    title: text,
-                    date_echeance: dtf.format(d)
-                };
-                const newRelation = {
-                    tache : currentTodo.taches.length + 101,
-                    categorie : 201
-                }
-                const newTodos = {...currentTodo};  
-                newTodos.taches = [...newTodos.taches,todo];
-                newTodos.relations = [...newTodos.relations,newRelation]
-                setCurrentTodo(newTodos);
-                setText('');
-                console.log(currentTodo);
-            }}>Ajouter une tâche</button><br/>
+            <button ref={buttonOpen}>Ajouter une tâche</button>
+            <div id="taskModal" ref={modalElement}>
+                <FormTask buttonOpen={buttonOpen} modalElement={modalElement}/><br/>               
             <input
                 value={text2}
                 onChange={e => setText2(e.target.value)}
@@ -50,6 +34,8 @@ function Footer(){
                 setText2('');
                 console.log(currentTodo);
             }}>Ajouter une catégorie</button>
+            </div>
+
         </footer>
         )
 }
