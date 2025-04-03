@@ -3,9 +3,9 @@
         {
             "id": 101,
             "title": "1. Fonctionnalités",
-            "description": "",
-            "date_creation": "2025-01-01",
-            "date_echeance": "2025-03-01",
+            "description": "trouver les fonctionnalités",
+            "date_creation": "2026-01-01",
+            "date_echeance": "2026-03-01",
             "done": true,
             "urgent": false,
             "contacts": [
@@ -17,9 +17,9 @@
         {
             "id": 102,
             "title": "2. Etude de marché",
-            "description": "",
-            "date_creation": "2025-01-02",
-            "date_echeance": "2025-03-01",
+            "description": "étudier de marché",
+            "date_creation": "2026-01-02",
+            "date_echeance": "2026-03-01",
             "done": true,
             "urgent": true,
             "contacts": []
@@ -27,9 +27,9 @@
         {
             "id": 103,
             "title": "3. Wireframes",
-            "description": "",
-            "date_creation": "2025-01-01",
-            "date_echeance": "2025-03-17",
+            "description": "faire des wireframes",
+            "date_creation": "2026-01-01",
+            "date_echeance": "2026-03-17",
             "done": false,
             "urgent": true,
             "contacts": []
@@ -37,9 +37,9 @@
         {
             "id": 104,
             "title": "4. Design",
-            "description": "",
-            "date_creation": "2025-01-01",
-            "date_echeance": "2025-03-18",
+            "description": "faire le design",
+            "date_creation": "2026-01-01",
+            "date_echeance": "2026-03-18",
             "done": false,
             "urgent": false,
             "contacts": []
@@ -47,9 +47,9 @@
         {
             "id": 105,
             "title": "5. Landing Page",
-            "description": "",
-            "date_creation": "2025-01-05",
-            "date_echeance": "2025-03-13",
+            "description": "faire la landing page",
+            "date_creation": "2026-01-05",
+            "date_echeance": "2026-03-13",
             "done": false,
             "urgent": false,
             "contacts": []
@@ -57,9 +57,9 @@
         {
             "id": 106,
             "title": "6. Développement",
-            "description": "",
-            "date_creation": "2025-01-05",
-            "date_echeance": "2025-03-28",
+            "description": "développer",
+            "date_creation": "2026-01-05",
+            "date_echeance": "2026-03-28",
             "done": false,
             "urgent": false,
             "contacts": []
@@ -67,9 +67,9 @@
         {
             "id": 107,
             "title": "7. Publication / Déploiement",
-            "description": "",
-            "date_creation": "2025-01-06",
-            "date_echeance": "2025-03-18",
+            "description": "déployer",
+            "date_creation": "2026-01-06",
+            "date_echeance": "2026-03-18",
             "done": false,
             "urgent": true,
             "contacts": [
@@ -84,9 +84,9 @@
         {
             "id": 108,
             "title": "8. Marketing",
-            "description": "",
-            "date_creation": "2025-01-10",
-            "date_echeance": "2025-05-01",
+            "description": "faire du marketing",
+            "date_creation": "2026-01-10",
+            "date_echeance": "2026-05-01",
             "done": false,
             "urgent": false,
             "contacts": []
@@ -94,9 +94,9 @@
         {
             "id": 109,
             "title": "9. Feedbacks",
-            "description": "",
-            "date_creation": "2025-01-10",
-            "date_echeance": "2025-05-01",
+            "description": "recueillir des feedbacks",
+            "date_creation": "2026-01-10",
+            "date_echeance": "2026-05-01",
             "done": false,
             "urgent": false,
             "contacts": []

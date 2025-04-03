@@ -48,9 +48,11 @@ function Filtre() {
     const [text, setText] = useState('');
 
     function recherche(){
-        const newTodos = { ...currentTodo };
+        if(text.length>2){
+            const newTodos = { ...currentTodo };
         newTodos.taches = [...newTodos.taches.filter(t => text === t.title)]
         setCurrentTodo(newTodos);
+        }
     }
 
     return (
